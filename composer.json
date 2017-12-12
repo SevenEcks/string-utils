@@ -11,7 +11,7 @@
             "email": "bbutts@stormcode.net"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require-dev": {
     },
     "require": {
