@@ -1,3 +1,7 @@
+## 0.0.7 - 2017-12-12 11:51AM
+
+- Updated README.md
+
 ## 0.0.6 - 2017-12-12 11:10AM
 
 - Updated sevenecks/ansi to ^1.0
