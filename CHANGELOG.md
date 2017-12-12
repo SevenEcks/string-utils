@@ -1,3 +1,7 @@
+## 0.0.3 - 2017-12-12 11:02AM
+
+- Removed PHPUnit from composer.json as we aren't using it
+
 ## 0.0.2 - 2017-12-12 11:00AM
 
 - Updated README
