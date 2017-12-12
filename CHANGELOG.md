@@ -1,3 +1,7 @@
+## 0.0.5 - 2017-12-12 11:06AM
+
+- Removed tests folder
+
 ## 0.0.4 - 2017-12-12 11:04AM
 
 - Updated minimum stability to stable
