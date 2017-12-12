@@ -3,7 +3,7 @@
 Via Composer
 
 ```bash
-composer require sevenecks/string-utilsi
+composer require sevenecks/string-utils
 ```
 
 ## Usage
