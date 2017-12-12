@@ -16,7 +16,7 @@
     },
     "require": {
         "php": ">=5.4",
-        "sevenecks/ansi": "^1.0"
+        "sevenecks/ansi": "^1"
     },
     "autoload": {
         "psr-4": {
