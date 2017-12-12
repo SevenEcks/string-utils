@@ -16,7 +16,7 @@
     },
     "require": {
         "php": ">=5.4",
-        "sevenecks/ansi": "dev-master"
+        "sevenecks/ansi": "^1.0"
     },
     "autoload": {
         "psr-4": {
