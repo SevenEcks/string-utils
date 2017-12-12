@@ -32,6 +32,7 @@ $su->tell($su->center("TEST", 10) . $su->center("TEST1", 10));
 // using tostr to combine args into a string
 $su->tell($su->tostr($su->center("THIS EXAMPLE", 10), ' ', $su->center("USES TOSTR", 10), ' ', 1,2,3));
 ```
+![Example Output](https://github.com/SevenEcks/string-utils/blob/master/images/example.png "Example Output")
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
