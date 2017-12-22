@@ -1,3 +1,7 @@
+## 0.0.10 - 2017-12-22 12:01PM
+
+- Added SevenEcks/Ansi/Colorize to StringUtils class
+
 ## 0.0.9 - 2017-12-22 11:49AM
 
 - Added warning, alert and critical strings
