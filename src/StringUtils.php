@@ -1,6 +1,8 @@
 <?php
 namespace SevenEcks\StringUtils;
 
+use SevenEcks\Ansi\Colorize;
+
 /**
  * This class is a utility package for manipulating strings in ways that. Specifically designed
  * for formatting terminal output and log output
