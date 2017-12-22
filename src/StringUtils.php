@@ -206,4 +206,37 @@ class StringUtils
     {
         $this->eol_string = $eol_string;
     }
+
+    /**
+     * Display an alert string
+     *
+     * @param string $string
+     * @return none
+     */
+    public function alert(string $string)
+    {
+        $this->tell('[' . Colorize::cyan('ALERT') . '] ' .  $string);
+    }
+
+    /**
+     * Display a warning string
+     *
+     * @param string $string
+     * @return none
+     */
+    public function warning(string $string)
+    {
+        $this->tell('[' . Colorize::yellow('WARNING') . '] ' . $string);
+    }
+
+    /**
+     * Display a critical string
+     *
+     * @param string $string
+     * @return none
+     */
+    public function critical(string $string)
+    {
+        $this->tell('[' . Colorize::red('CRITICAL') . '] ' . $string);
+    }
 }

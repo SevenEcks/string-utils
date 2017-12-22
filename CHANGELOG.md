@@ -1,3 +1,7 @@
+## 0.0.9 - 2017-12-22 11:49AM
+
+- Added warning, alert and critical strings
+
 ## 0.0.8 - 2017-12-12 11:51AM
 
 - Updated README.md
