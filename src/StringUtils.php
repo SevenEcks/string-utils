@@ -2,7 +2,7 @@
 namespace SevenEcks\StringUtils;
 
 use SevenEcks\Ansi\Colorize;
-
+use SevenEcks\Ansi\ColorInterface;
 /**
  * This class is a utility package for manipulating strings in ways that. Specifically designed
  * for formatting terminal output and log output
@@ -16,6 +16,22 @@ class StringUtils
     protected $split_mid_word = false;
     protected $break_string = "\n";
     protected $eol_string = "\n";
+
+    /**
+     * Construct the StringUtils object, accepting a class that defines the
+     * ColorizeInterface, if it is not passed in, the constructor injects one
+     * on it's own.
+     *
+     * @param interface $colorize;
+     * @return void
+     */
+    public function __construct(ColorInterface $colorize = null)
+    {
+        if (!$colorize) {
+            $colorize = new Colorize;
+        }
+        $this->colorize = $colorize;
+    }
 
     /**
      * Display a string on the left, and pad it on the right $length
@@ -217,7 +233,7 @@ class StringUtils
      */
     public function alert(string $string)
     {
-        $this->tell('[' . Colorize::cyan('ALERT') . '] ' .  $string);
+        $this->tell('[' . $this->colorize->cyan('ALERT') . '] ' .  $string);
     }
 
     /**
@@ -228,7 +244,7 @@ class StringUtils
      */
     public function warning(string $string)
     {
-        $this->tell('[' . Colorize::yellow('WARNING') . '] ' . $string);
+        $this->tell('[' . $this->colorize->yellow('WARNING') . '] ' . $string);
     }
 
     /**
@@ -239,6 +255,6 @@ class StringUtils
      */
     public function critical(string $string)
     {
-        $this->tell('[' . Colorize::red('CRITICAL') . '] ' . $string);
+        $this->tell('[' . $this->colorize->red('CRITICAL') . '] ' . $string);
     }
 }

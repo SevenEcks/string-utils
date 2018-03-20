@@ -20,6 +20,9 @@ $su->tell_lines($su->lineWrap('123456789123456789123456789'));
 $su->tell($su->left("TEST", 10) . $su->left("TEST1", 10));
 $su->tell($su->right("TEST", 10) . $su->right("TEST1", 10));
 $su->tell($su->center("TEST", 10) . $su->center("TEST1", 10));
+$su->alert("This is an alert!");
+$su->warning("This is a warning");
+$su->critical("This is critical!");
 // using tostr to combine args into a string
 $su->tell($su->tostr($su->center("THIS EXAMPLE", 10), ' ', $su->center("USES TOSTR", 10), ' ', 1,2,3));
 

@@ -1,3 +1,10 @@
+## 0.0.11 - 2018-03-20 3:47PM
+
+- Custom Colorize can be passed in through dependency injection
+- Updated ReadMe
+- Updated example/example.php
+- Added new example2.php
+
 ## 0.0.10 - 2017-12-22 12:01PM
 
 - Added SevenEcks/Ansi/Colorize to StringUtils class

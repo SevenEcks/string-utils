@@ -1,29 +1,10 @@
-# StringUtils
-
-A set of common string functions, loosely based on LambdaMOO $string_utils. It uses [sevenecks/ansi](https://github.com/SevenEcks/ansi) to add color where applicable though you can pass your own colorizer in via dependency injection.
-
-## Installation
-
-Via Composer
-
-```bash
-composer require sevenecks/string-utils
-```
-
-## Usage
-
-You can use this by calling it's static methods, or instantiate it as an object and call it's methods dynamically.
-
-```php
-require_once __DIR__ . '/vendor/autoload.php';
+<?php
+require_once __DIR__ . '/../vendor/autoload.php';
 use SevenEcks\StringUtils\StringUtils;
 use SevenEcks\Ansi\Colorize;
 
-$su = new StringUtils();
-
 $colorize = new Colorize;
-$su2 = new StringUtils($colorize);
-
+$su = new StringUtils($colorize);
 $test_string = 'This is a test';
 $su->tell($test_string);
 $su->setLineLength(10);
@@ -45,12 +26,6 @@ $su->tell($su->tostr($su->center("THIS EXAMPLE", 10), ' ', $su->center("USES TOS
 $su->alert("This is an alert!");
 $su->warning("This is a warning");
 $su->critical("This is critical!");
-```
-![Example Output](https://github.com/SevenEcks/string-utils/blob/master/images/example.png "Example Output")
 
-## Change Log
-Please see [Change Log](CHANGELOG.md) for more information.
 
-## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
