@@ -45,6 +45,7 @@ $su->tell($su->tostr($su->center("THIS EXAMPLE", 10), ' ', $su->center("USES TOS
 $su->alert("This is an alert!");
 $su->warning("This is a warning");
 $su->critical("This is critical!");
+$a = $su->tell("RETURN THIS STRING!", false);
 ```
 ![Example Output](https://github.com/SevenEcks/string-utils/blob/master/images/example.png "Example Output")
 

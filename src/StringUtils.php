@@ -89,14 +89,20 @@ class StringUtils
     }
 
     /**
-     * Echo out a string ending in $this->eol_string
+     * Echo or return a string ending in $this->eol_string
      *
      * @param string $string
+     * @param bool $echo
      * @return string
      */
-    public function tell(string $string)
+    public function tell(string $string, $echo = true)
     {
-        echo $string . $this->eol_string;
+        $full_string = $string . $this->eol_string;
+        if ($echo) {
+            echo $full_string;
+            return;
+        }
+        return $full_string;
     }
 
     /** 

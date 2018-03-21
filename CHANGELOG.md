@@ -1,3 +1,7 @@
+## 0.0.12 - 2017-03-21 4:45PM
+
+- Added optional param to ->tell to allow value to be returned instead of echod
+
 ## 0.0.11 - 2018-03-20 3:47PM
 
 - Custom Colorize can be passed in through dependency injection
