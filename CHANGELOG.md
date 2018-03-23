@@ -1,4 +1,8 @@
-## 0.0.12 - 2017-03-21 4:45PM
+## 0.0.13 - 2018-03-23 12:07PM
+
+- Added optional param to ->center for length, defaulting to a portion of the line_len
+
+## 0.0.12 - 2018-03-21 4:45PM
 
 - Added optional param to ->tell to allow value to be returned instead of echod
 

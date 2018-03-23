@@ -16,6 +16,7 @@ class StringUtils
     protected $split_mid_word = false;
     protected $break_string = "\n";
     protected $eol_string = "\n";
+    protected $colorize = null;
 
     /**
      * Construct the StringUtils object, accepting a class that defines the
@@ -62,16 +63,21 @@ class StringUtils
     }
 
     /**
-     * Display a string in the center, and pad it on the left $length
-     * and right as close to equal characters using $filler / 2.
+     * Display a string in the center (passed in, or determined by the 
+     * line_length / 2 - the length of the string being presented / 2
+     * and pad it on the left $length and right as close to equal
+     * characters using $filler / 2.
      *
      * @param string $string
-     * @param int $length
+     * @param optional int $length
      * @param optional string $filler
      * @return string
      */
-    public function center($string, $length, $filler = ' ')
+    public function center($string, $length = null, $filler = ' ')
     {
+        if (is_null($length)) {
+            $length = ($this->line_length / 2) - (strlen($string) / 2);
+        }
         return str_pad($string, $length, $filler, STR_PAD_BOTH);
     }
 

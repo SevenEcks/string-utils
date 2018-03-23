@@ -23,6 +23,9 @@ $su->tell($su->center("TEST", 10) . $su->center("TEST1", 10));
 $su->alert("This is an alert!");
 $su->warning("This is a warning");
 $su->critical("This is critical!");
+$su->setLineLength(180);
+$su->tell($su->center("CENTER NO ARGS"));
+$su->tell($su->center("CENTER W/ ARGS", 30));
 // using tostr to combine args into a string
 $su->tell($su->tostr($su->center("THIS EXAMPLE", 10), ' ', $su->center("USES TOSTR", 10), ' ', 1,2,3));
 
