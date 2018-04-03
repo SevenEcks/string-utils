@@ -3,6 +3,7 @@ namespace SevenEcks\StringUtils;
 
 use SevenEcks\Ansi\Colorize;
 use SevenEcks\Ansi\ColorInterface;
+
 /**
  * This class is a utility package for manipulating strings in ways that. Specifically designed
  * for formatting terminal output and log output
@@ -82,6 +83,88 @@ class StringUtils
     }
 
     /**
+     * Create a string of $length with the filler characters $filler.
+     * This function will return a string of length $length even if
+     * $filler is greater than that length.
+     *
+     * @param int $length
+     * @param string $filler
+     * @return string
+     */
+    public function fill(int $length, string $filler = ' ')
+    {
+        return str_pad('', $length, $filler);
+    }
+
+    public function tableify(array $data, string $formatter = 'left', int $seperator_padding = 1, string $seperator = '|', string $header_character = '-', $below_header_character = '-')
+    {
+        // empty table to start
+        $table = [];
+        // get the max length of each column in the table
+        $field_lengths = $this->maxMultidimensionalArrayStringSize($data);
+        $row_length = $this->calculateRowLength($field_lengths, $seperator_padding, $seperator);
+        $book_end = $this->fill($row_length, $header_character);
+        $below_header = $this->fill($row_length, $below_header_character);
+        $table[] = $book_end;
+        // loop over each 'row' in our array
+        for ($i = 0; $i < count($data); $i++) {
+            // line starts as just the left most seperator
+            $line = $seperator . $this->fill($seperator_padding);
+            // loop over each 'field' aka column in our row
+            for ($j = 0; $j < count($data[$i]); $j++) {
+                // format the fields such that they have a max length of the biggest field in this column
+                // and add the additional padding, then pass this to the formatter method and append it to
+                // the line and then add the seperator
+                $line .= $this->{$formatter}($data[$i][$j], $field_lengths[$j]) . $this->fill($seperator_padding) . $seperator . $this->fill($seperator_padding);
+            }
+            // add the new line to the table
+            $table[] = $line;
+            // if this was the first row we will add a $below_header row to break it up
+            if ($i == 0) {
+                $table[] = $below_header;
+            }
+        }
+        $table[] = $book_end;
+        return $table;
+    }
+
+    private function calculateRowLength(array $field_lengths, int $seperator_padding, string $seperator)
+    {
+        $sample_row = $seperator . $this->fill($seperator_padding);
+        for ($i = 0; $i < count($field_lengths); $i++) {
+            $sample_row .= $this->fill($field_lengths[$i]) . $this->fill($seperator_padding) . $seperator . $this->fill($seperator_padding);
+        }
+        $sample_row = rtrim($sample_row);
+        return strlen($sample_row);
+    }
+
+    /**
+     * For an array of length N and with each N having X columns find the max string length
+     * for each column in the array, across dimensions such as [['aaaa','aaaaa'], ['bb','bbbbbbb']]
+     * would yeild a return of [4, 7].
+     *
+     * @param array $data
+     * @return array
+     */
+    public function maxMultidimensionalArrayStringSize(array $data)
+    {
+        $lengths = [];
+        for ($i =0; $i < count($data); $i++) {
+            for ($j = 0; $j < count($data[$i]); $j++) {
+                $temp_length = strlen($data[$i][$j]);
+                if (!isset($lengths[$j])) {
+                    $lengths[$j] = $temp_length;
+                    continue;
+                } elseif ($lengths[$j] < $temp_length) {
+                    $lengths[$j] = $temp_length;
+                    continue;
+                }
+            }
+        }
+        return $lengths;        
+    }
+
+    /**
      * Break a string at $this->line_length
      * and return an array of strings
      *
@@ -121,10 +204,21 @@ class StringUtils
     public function tostr(...$strings)
     {
         $new_string = '';
-        foreach ($strings as $temp_string) {
-            $new_string .= (string)$temp_string;
+        foreach ($strings as $temp) {
+            switch (gettype($temp)) {
+                case "array":
+                    $it = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($temp));
+                    foreach($it as $v) {
+                        $temp_str .= ' ' . $this->tostr($v);
+                    }
+                    break;
+                default:
+                    $temp_str = (string)$temp;
+                    break;
+            }
+            $new_string .= $temp_str;
         }
-        return $new_string;
+        return trim($new_string);
     }
 
     /**

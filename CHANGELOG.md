@@ -1,3 +1,11 @@
+## 0.0.14 - 2018-04-03 5:45PM
+
+- Added Tableify method to make a multidimensional array into a table
+- Updated tostr to properly handle arrays using RecursiveIteratorIterator
+- Updated example files with test data
+- Added fill method which is a wrapper for str_pad with no starting string to create strings of a specific length
+- Added maxMultidimensionalArrayStringSize method which slices through an array and gets the largest strlen for each index
+
 ## 0.0.13 - 2018-03-23 12:07PM
 
 - Added optional param to ->center for length, defaulting to a portion of the line_len

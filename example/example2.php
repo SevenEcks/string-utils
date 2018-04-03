@@ -26,6 +26,22 @@ $su->tell($su->tostr($su->center("THIS EXAMPLE", 10), ' ', $su->center("USES TOS
 $su->alert("This is an alert!");
 $su->warning("This is a warning");
 $su->critical("This is critical!");
-
+// testing tableify and array to string conversion
+$data = [
+    ['Name', 'Date', 'Phone', 'Age'], 
+    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+];
+$su->tell_lines($su->tableify($data, 'left', 1, '|', '-', '-'));
+// testing tostr of an array
+$su->tell("tostr of an array:");
+$su->tell($su->tostr($data));
 
 
