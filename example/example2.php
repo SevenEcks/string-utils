@@ -29,17 +29,19 @@ $su->critical("This is critical!");
 // testing tableify and array to string conversion
 $data = [
     ['Name', 'Date', 'Phone', 'Age'], 
-    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
-    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
-    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
-    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
-    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
-    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
-    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
-    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
-    ['Brendan Butts', '03/22/18', '978-555-0584', '34'],
+    ['Altec Lansing', '03/22/18', '617-555-0584', '30'],
+    ['Fack', '03/22/18', '508-555-0584', '24'],
+    ['Seven Ecks', '03/22/18', '+1-888-555-0584', '100'],
+    ['CK', '03/22/18', 'N/A', '33'],
+    ['Jason Jasonson', '03/22/18', '978-555-0584', '34'],
+    ['Waxillium Wick', '03/22/18', '978-555-0584', '34'],
+    ['Ruby Reide', '03/22/18', '978-555-0584', '34'],
+    ['Rex Gold', '03/22/18', '978-555-0584', '34'],
+    ['Juicy Vee', '03/22/18', '978-555-0584', '34'],
 ];
 $su->tell_lines($su->tableify($data, 'left', 1, '|', '-', '-'));
+$su->tell_lines($su->tableify($data, 'center', 1, '|', '-', '-'));
+$su->tell_lines($su->tableify($data, 'right', 1, '|', '-', '-'));
 // testing tostr of an array
 $su->tell("tostr of an array:");
 $su->tell($su->tostr($data));

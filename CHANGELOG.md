@@ -1,3 +1,8 @@
+## 0.0.15 - 2018-04-04
+
+- Moved Tableify to it's own package sevenecks/tableify
+- Moved maxMulti... to it's own package (tableify) along with rowsize function for tablify
+
 ## 0.0.14 - 2018-04-03 5:45PM
 
 - Added Tableify method to make a multidimensional array into a table
