@@ -17,7 +17,7 @@ class StringUtils
     protected $split_mid_word = false;
     protected $break_string = "\n";
     protected $eol_string = "\n";
-    protected $colorize = null;
+    public $colorize = null;
 
     /**
      * Construct the StringUtils object, accepting a class that defines the
@@ -167,14 +167,15 @@ class StringUtils
     }
 
     /**
-     * Echo out a string wrapped either at a word, or close to the words completion
+     * Return a string wrapped either at a word, or close to the words completion
+     * using the break_string defined on the object
      *
      * @param string $string
      * @return none
      */
     public function wordWrap($string)
     {
-        echo wordwrap($string, $this->line_length, $this->break_string, $this->split_mid_word);
+        return wordwrap($string, $this->line_length, $this->break_string, $this->split_mid_word);
     }
 
     /**
@@ -295,5 +296,21 @@ class StringUtils
     public function critical(string $string)
     {
         $this->tell('[' . $this->colorize->red('CRITICAL') . '] ' . $string);
+    }
+
+    /**
+     * Mass colorize an array of strings
+     *
+     * @param array $strings
+     * @param string $color
+     * @return array
+     */
+    public function massColor(array $strings, string $color)
+    {
+        $len_array = count($strings);
+        for ($i = 0; $i < $len_array; $i++) {
+            $strings[$i] = $this->colorize->{$color}($strings[$i]);
+        }
+        return $strings;
     }
 }

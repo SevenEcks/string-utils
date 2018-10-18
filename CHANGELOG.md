@@ -1,3 +1,9 @@
+## 0.1.0 - 2018-10-18
+
+* Added massColor method to support colorizing an array
+* modified line wrapping to return it's value instead of echoing
+* Updated example.php to better illustrate uses
+
 ## 0.0.15 - 2018-04-04
 
 - Moved Tableify to it's own package sevenecks/tableify
